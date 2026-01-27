@@ -1,0 +1,32 @@
+<section class="bg-slate-900 text-white py-20">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Section Title -->
+    <h2 class="text-4xl font-bold text-center mb-4">Skills</h2>
+    <p class="text-gray-400 text-center mb-14">
+      Technologies I excel in
+    </p>
+
+    <!-- Skills Grid -->
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+
+      <div *ngFor="let skill of skills" class="flex flex-col gap-2">
+        <div class="flex justify-between mb-1">
+          <span class="text-sm font-medium">{{ skill.name }}</span>
+          <span class="text-sm font-medium">{{ skill.level }}%</span>
+        </div>
+
+        <!-- Progress Bar Background -->
+        <div class="w-full bg-white/10 rounded-full h-4 overflow-hidden">
+          <!-- Progress Bar -->
+          <div
+            class="bg-primary h-4 rounded-full transition-all duration-1000"
+            [style.width.%]="skill.level">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

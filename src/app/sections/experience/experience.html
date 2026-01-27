@@ -1,0 +1,45 @@
+<section class="bg-slate-900 text-white py-20 relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <h2 class="text-4xl font-bold text-center mb-4">Experience</h2>
+    <p class="text-gray-400 text-center mb-14">
+      Where I’ve worked & what I’ve built
+    </p>
+
+    <div class="relative">
+
+      <!-- Vertical guide line -->
+      <div class="absolute left-1/2 -translate-x-1/2 h-full w-px bg-white/10"></div>
+
+      <!-- Timeline Items -->
+      <div *ngFor="let exp of experiences; let i = index"
+           class="timeline-item relative w-full md:w-1/2 p-6"
+           [ngClass]="getTimelineItemClasses(i)">
+
+        <!-- Card -->
+        <div class="bg-slate-800 p-6 rounded-2xl shadow-xl border border-white/10 relative z-10">
+          <h3 class="text-xl font-semibold mb-1">{{ exp.role }}</h3>
+          <p class="text-sm text-gray-400 mb-2">
+            {{ exp.company }} | {{ exp.duration }}
+          </p>
+          <p class="text-gray-300 mb-3">{{ exp.description }}</p>
+
+          <div class="flex flex-wrap gap-2">
+            <span *ngFor="let tech of exp.techStack"
+                  class="text-xs px-3 py-1 rounded-full bg-white/10 border border-white/20">
+              {{ tech }}
+            </span>
+          </div>
+        </div>
+
+        <!-- Timeline Dot -->
+        <div
+          class="absolute left-1/2 -translate-x-1/2 -top-3
+                 w-6 h-6 bg-primary rounded-full
+                 border-4 border-slate-900 shadow-lg z-20">
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

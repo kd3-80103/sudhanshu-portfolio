@@ -1,0 +1,44 @@
+<section class="bg-dark py-20 text-white">
+
+  <div class="max-w-4xl mx-auto px-6">
+
+    <h2 class="text-4xl font-bold text-center mb-4">Projects</h2>
+    <p class="text-gray-400 text-center mb-14">
+      Some of the things I’ve built recently
+    </p>
+
+    <!-- Projects Grid (centered) -->
+    <div class="grid gap-10 grid-cols-1 md:grid-cols-2 justify-items-center">
+
+      <div
+        *ngFor="let project of projects"
+        class="group relative rounded-xl overflow-hidden shadow-xl bg-slate-800 w-full max-w-sm">
+
+        <img
+          [src]="project.image"
+          alt="{{ project.title }}"
+          class="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-110" />
+
+        <div
+          class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
+
+          <h3 class="text-2xl font-semibold mb-3">{{ project.title }}</h3>
+          <p class="text-gray-300 text-sm mb-4">{{ project.description }}</p>
+
+          <div class="flex flex-wrap justify-center gap-2 mb-5">
+            <span
+              *ngFor="let tech of project.techStack"
+              class="text-xs px-3 py-1 rounded-full bg-white/10 border border-white/20">
+              {{ tech }}
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
