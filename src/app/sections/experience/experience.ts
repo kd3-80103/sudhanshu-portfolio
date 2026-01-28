@@ -10,11 +10,10 @@ import { EXPERIENCES, Experience } from '../../data/experience.data';
 })
 export class ExperienceComponent implements OnInit {
   experiences: Experience[] = EXPERIENCES;
-  visibleIndexes: number[] = [];
+  visibleIndexes: Set<number> = new Set();
 
   ngOnInit() {
-    // 👇 make all visible on load (CRITICAL FIX)
-    this.visibleIndexes = this.experiences.map((_, i) => i);
+    setTimeout(() => this.onWindowScroll(), 100);
   }
 
   @HostListener('window:scroll', [])
@@ -24,23 +23,13 @@ export class ExperienceComponent implements OnInit {
 
     elements.forEach((el, i) => {
       const rect = el.getBoundingClientRect();
-      if (rect.top < windowHeight - 100 && !this.visibleIndexes.includes(i)) {
-        this.visibleIndexes.push(i);
+      if (rect.top < windowHeight - 100) {
+        this.visibleIndexes.add(i);
       }
     });
   }
 
   isVisible(index: number): boolean {
-    return this.visibleIndexes.includes(index);
-  }
-
-  getTimelineItemClasses(index: number) {
-    return {
-      'transition-all duration-1000 ease-out': true,
-      'opacity-0 translate-y-10': !this.isVisible(index),
-      'opacity-100 translate-y-0': this.isVisible(index),
-      'md:ml-auto': index % 2 === 1,
-      'md:mr-auto': index % 2 === 0
-    };
+    return this.visibleIndexes.has(index);
   }
 }

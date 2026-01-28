@@ -1,42 +1,53 @@
-<section id="about-section"
-  class="bg-slate-900 text-white py-20 flex justify-center items-center relative overflow-hidden">
+<section id="about-section" class="bg-white py-32 relative overflow-hidden text-dark">
+  
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="flex flex-col md:flex-row items-center gap-16 transition-all duration-1000 ease-out"
+         [ngClass]="isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'">
+      
+      <div class="relative group flex-shrink-0">
+        <div class="absolute -inset-4 border-2 border-primary/20 group-hover:border-accent transition-colors duration-500"></div>
+        <div class="w-64 h-80 bg-gray-100 overflow-hidden relative z-10 shadow-2xl">
+          <img src="assets/profile-photo.jpg" alt="Sudhanshu" 
+               class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" />
+        </div>
+      </div>
 
-  <!-- Floating gradient blob behind -->
-  <div
-    class="absolute -top-20 -left-20 w-72 h-72 bg-primary opacity-20 rounded-full blur-3xl animate-[float_8s_ease-in-out_infinite]">
-  </div>
-  <div
-    class="absolute -bottom-20 -right-20 w-72 h-72 bg-accent opacity-20 rounded-full blur-3xl animate-[float_10s_ease-in-out_infinite]">
-  </div>
+      <div class="flex-1 space-y-6">
+        <div class="inline-flex items-center gap-4">
+          <div class="w-12 h-[2px] bg-accent"></div>
+          <span class="text-xs font-black uppercase tracking-[0.3em] text-accent">Biography</span>
+        </div>
+        
+        <h2 class="text-5xl md:text-6xl font-black tracking-tighter uppercase">
+          Building Systems with <br/>
+          <span class="text-primary italic">Purpose & Precision.</span>
+        </h2>
 
-  <div
-    class="relative max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 p-8 backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl shadow-2xl transition-all duration-1000 ease-out"
-    [class.opacity-0]="!isVisible" [class.opacity-100]="isVisible" [class.translate-y-10]="!isVisible"
-    [class.translate-y-0]="isVisible">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-500 font-medium leading-relaxed">
+          <p>
+            Hi! I’m <span class="text-dark font-bold">Sudhanshu</span>. I specialize in 
+            <strong>communication & campaign systems</strong>. While my work at Plati-one was complex, 
+            I crave the full lifecycle—which is why I dockerized and deployed this entire portfolio myself.
+          </p>
+          <p>
+            I don't just write code; I engineer solutions. From <strong>Spring Boot</strong> microservices 
+            to responsive <strong>Angular</strong> interfaces, my goal is always high performance and 
+            maintainable architecture.
+          </p>
+        </div>
 
-    <!-- Floating circular photo -->
-    <div
-      class="w-48 h-48 rounded-full overflow-hidden shadow-2xl flex-shrink-0 transform transition-transform duration-1000 hover:scale-105">
-      <img src="assets/profile-photo.jpg" alt="Sudhanshu" class="w-full h-full object-cover" />
+        <div class="pt-6 flex gap-12 border-t border-gray-100">
+          <div>
+            <div class="text-4xl font-black text-dark italic">1+</div>
+            <div class="text-xs uppercase tracking-widest text-gray-400">Years Experience</div>
+          </div>
+          <div>
+            <div class="text-4xl font-black text-dark italic">100%</div>
+            <div class="text-xs uppercase tracking-widest text-gray-400">Dockerized Apps</div>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <!-- About Text -->
-    <div class="flex-1">
-      <h2 class="text-4xl font-bold mb-4">About Me</h2>
-      <p class="text-gray-300 mb-4">
-        Hi! I’m Sudhanshu, a passionate <strong>Java Full Stack Developer</strong> with 1 year of experience building
-        scalable web applications.
-      </p>
-      <p class="text-gray-300 mb-4">
-        I specialize in <strong>communication & campaign systems</strong> at Plati-one, but since I didn’t get to work
-        on full production deployments, I created this personal portfolio project, dockerized and deployed it on a free
-        cloud platform.
-      </p>
-      <p class="text-gray-300">
-        I love clean code, performance optimization, and creating interfaces that delight users.
-      </p>
-
-    </div>
-
   </div>
 </section>

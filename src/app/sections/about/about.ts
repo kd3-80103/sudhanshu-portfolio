@@ -1,10 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.html',
   styleUrl: './about.css',
-  standalone: true
+  standalone: true,
+  imports: [ CommonModule ]
 })
 export class AboutComponent {
   // For scroll reveal animation

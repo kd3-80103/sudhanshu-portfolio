@@ -1,0 +1,15 @@
+.cursor-dot, .cursor-outline {
+  /* ... previous styles ... */
+  transition: opacity 0.3s ease;
+}
+
+/* Hide cursor when mouse leaves the screen */
+body:hover .cursor-dot,
+body:hover .cursor-outline {
+  opacity: 1;
+}
+
+body .cursor-dot,
+body .cursor-outline {
+  opacity: 0;
+}
