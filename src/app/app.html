@@ -1,5 +1,12 @@
-<app-hero></app-hero>
+<div class="cursor-dot" [ngStyle]="{'left.px': mouseX, 'top.px': mouseY}"></div>
+<div class="cursor-outline" [ngStyle]="{'left.px': mouseX, 'top.px': mouseY}"></div>
+<app-hero (openContact)="toggleContactModal()"></app-hero>
 <app-projects></app-projects>
 <app-about></app-about>
 <app-skills></app-skills>
 <app-experience></app-experience>
+<app-footer (openContact)="toggleContactModal()"></app-footer>
+<app-contact-modal 
+  [isOpen]="isContactModalOpen" 
+  (closeEvent)="toggleContactModal()">
+</app-contact-modal>

@@ -1,44 +1,40 @@
-<section class="bg-dark py-20 text-white">
+<section class="bg-white py-24 text-dark border-t border-gray-100">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <div class="flex justify-between items-end mb-16">
+      <div>
+        <h2 class="text-5xl font-black uppercase">Selected</h2>
+        <h2 class="text-5xl font-black uppercase text-primary">Works</h2>
+      </div>
+      <p class="text-gray-400 max-w-xs text-right hidden md:block">
+        Focused on building high-performance Java backends and sleek Angular interfaces.
+      </p>
+    </div>
 
-  <div class="max-w-4xl mx-auto px-6">
+    <div class="grid gap-16 grid-cols-1 md:grid-cols-2">
+      <div *ngFor="let project of projects" class="group">
+        
+        <div class="relative overflow-hidden bg-gray-50 mb-6 shadow-sm group-hover:shadow-xl transition-all duration-500 p-6 rounded-sm border border-gray-100">
+          
+          <img [src]="project.image" 
+               class="w-full h-[320px] object-contain transition-transform duration-700 group-hover:scale-105" 
+               alt="{{project.title}}" />
+          
+          <div class="absolute inset-0 bg-dark/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
+        </div>
 
-    <h2 class="text-4xl font-bold text-center mb-4">Projects</h2>
-    <p class="text-gray-400 text-center mb-14">
-      Some of the things I’ve built recently
-    </p>
-
-    <!-- Projects Grid (centered) -->
-    <div class="grid gap-10 grid-cols-1 md:grid-cols-2 justify-items-center">
-
-      <div
-        *ngFor="let project of projects"
-        class="group relative rounded-xl overflow-hidden shadow-xl bg-slate-800 w-full max-w-sm">
-
-        <img
-          [src]="project.image"
-          alt="{{ project.title }}"
-          class="w-full h-52 object-cover transition-transform duration-500 group-hover:scale-110" />
-
-        <div
-          class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-center p-6">
-
-          <h3 class="text-2xl font-semibold mb-3">{{ project.title }}</h3>
-          <p class="text-gray-300 text-sm mb-4">{{ project.description }}</p>
-
-          <div class="flex flex-wrap justify-center gap-2 mb-5">
-            <span
-              *ngFor="let tech of project.techStack"
-              class="text-xs px-3 py-1 rounded-full bg-white/10 border border-white/20">
+        <div class="space-y-3">
+          <div class="flex flex-wrap gap-2">
+            <span *ngFor="let tech of project.techStack" class="text-[10px] font-bold border border-dark/10 px-2 py-1 uppercase tracking-tight">
               {{ tech }}
             </span>
           </div>
-
+          <h3 class="text-3xl font-bold group-hover:underline decoration-accent decoration-4 underline-offset-8 transition-all">
+            {{ project.title }}
+          </h3>
+          <p class="text-gray-500 leading-relaxed text-sm md:text-base">{{ project.description }}</p>
         </div>
-
       </div>
-
     </div>
-
   </div>
-
 </section>

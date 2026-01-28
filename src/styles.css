@@ -6,3 +6,40 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Global Cursor Styles */
+.cursor-dot, .cursor-outline {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: transform 0.1s ease-out, opacity 0.3s ease;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: #ff4d00; /* Match your Accent color */
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #6366f1; /* Match your Primary color */
+}
+
+/* Fix for the l-curly error and adding smooth scroll */
+html {
+  scroll-behavior: smooth;
+  background-color: #fcfcfc;
+}
+
+body {
+  cursor: none; /* Hide default cursor to show custom one */
+}
+
+::selection {
+  background: #ff4d00;
+  color: white;
+}
